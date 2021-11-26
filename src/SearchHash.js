@@ -37,21 +37,28 @@ const SearchHash = () => {
   };
 
   return (
-    <div className="relative flex justify-center mt-60 w-1/3 rounded-lg shadow-lg bg-gray-100">
-      <form className="flex flex-col justify-center" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={txHash}
-          onChange={(e) => setTxHash(e.target.value)}
-        />
-        <button>Submit</button>
-      </form>
+    <section className="flex flex-col">
+      <div className="flex justify-center mt-8">
+        <form
+          className="flex justify-center rounded-lg bg-indigo-100 shadow-2xl p-5 w-5/12 relative z-10"
+          onSubmit={handleSubmit}
+        >
+          <input
+            className="border-indigo-300 border-b-2 rounded-lg text-indigo-900 flex-grow pl-5 p-2 text-sm
+                      focus:outline-none focus:border-indigo-600 shadow-xl truncate overflow-clip"
+            type="text"
+            value={txHash}
+            placeholder="Transaction Hash"
+            onChange={(e) => setTxHash(e.target.value)}
+          />
+          <button className="bg-indigo-600 w-24 rounded-lg ml-5 border-indigo-300 text-gray-100 shadow-2xl">
+            Search
+          </button>
+        </form>
+      </div>
       {transactions[0] && <TxsGraph tx={transactions} />}
-    </div>
+    </section>
   );
 };
 
 export default SearchHash;
-
-// class="w-full px-2 pb-1.5 text-primary outline-none text-base font-light rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-// class="hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"

@@ -11,9 +11,8 @@ export default function TxsGraph(transactions) {
   };
 
   return (
-    <div>
-      <div>{transactions.tx[0].hash}</div>
-      <svg style={{ width: "100vw", height: "100vh" }}>
+    <div className="m-auto w-10/12 bg-indigo-900 rounded-lg -mt-8 shadow-2xl opacity-80">
+      <svg className="opacity-100" style={{ width: "90vw", height: "70vh" }}>
         <Graph>
           <g id="nodes">
             {/* Main node - of which the hash is being searched for*/}
@@ -51,6 +50,7 @@ export default function TxsGraph(transactions) {
               );
             })}
           </g>
+
           {/* Ingress Links */}
           {Object.keys(transactions.tx[0].ingress).map((key) => {
             return (
@@ -76,6 +76,7 @@ export default function TxsGraph(transactions) {
   );
 }
 
+// TODO: Extract in separate file
 const Node = (props) => {
   const {
     color = "black",
@@ -90,7 +91,6 @@ const Node = (props) => {
     outdeg,
     ...rest
   } = props;
-  // console.log(props);
   const ref = useRef();
   useNode(([cx, cy]) => {
     ref.current.setAttribute("cx", cx);
@@ -115,8 +115,9 @@ const Node = (props) => {
   );
 };
 
+// TODO: Extract in separate file
 const Link = (props) => {
-  const { source, target, color = "#95a5a6", ...rest } = props;
+  const { source, target, color = "#e0e7ff", ...rest } = props;
   const ref = useRef();
 
   useLink(
