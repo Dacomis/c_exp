@@ -2,9 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## To Start the Project
 
-In the project directory, you can run:
+### `npm i`
+
+Install the dependencies.
+This project has TailwindCSS which requires node 12+.
 
 ### `npm start`
 
@@ -14,6 +17,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npx json-server --watch db.json --port 8000`
+### TODO:
 
-Launches the mock database using JSON Server.\
+- link length;
+- on node click get tx;
+- update to TS;
+- tooltip on the right;
