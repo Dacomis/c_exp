@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### `npm i`
 
 Install the dependencies.
-This project has TailwindCSS which requires node 12+.
+This project uses TailwindCSS which requires node 12+.
 
 ### `npm start`
 
@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 
 ### TODO:
 
-- link length;
 - on node click get tx;
 - update to TS;
 - tooltip on the right;
+- i18n on buttons and text (Mandarin)

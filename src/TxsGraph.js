@@ -3,8 +3,6 @@ import { useRef } from "react";
 import { Graph, useNode, useLink } from "graphire";
 
 export default function TxsGraph(transactions) {
-  console.log(`inside TxGraph`, transactions.tx[0]);
-
   const randomIntFromInterval = (min, max) => {
     // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -25,7 +23,6 @@ export default function TxsGraph(transactions) {
             />
             {/* Ingress Nodes */}
             {Object.keys(transactions.tx[0].ingress).map((key) => {
-              console.log(`ingress ${key}`, transactions.tx[0].ingress[key]);
               return (
                 <Node
                   uid={transactions.tx[0].ingress[key]}
@@ -38,7 +35,6 @@ export default function TxsGraph(transactions) {
             })}
             {/* Egress Nodes */}
             {Object.keys(transactions.tx[0].egress).map((key) => {
-              console.log(`egress ${key}`, transactions.tx[0].egress[key]);
               return (
                 <Node
                   uid={transactions.tx[0].egress[key]}

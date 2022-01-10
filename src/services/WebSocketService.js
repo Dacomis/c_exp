@@ -18,9 +18,6 @@ const getSocket = () => {
     let socket = new WebSocket(SOCKET_URL);
 
     socket.onopen = function () {
-      console.log(
-        `socket connection is opened [state = ${socket.readyState} ]:  ${socket.url}`
-      );
       resolve(socket);
     };
     socket.onerror = function (err) {
@@ -52,7 +49,7 @@ let getSocketRes = (txHash) => {
         });
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 };
 
 export default getSocketRes;
