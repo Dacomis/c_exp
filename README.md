@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 
 ### TODO:
 
-- on node click get tx;
-- update to TS;
+- on node click get ingress tx;
+- finish update to TS;
 - tooltip on the right;
 - i18n on buttons and text (Mandarin)
