@@ -4,11 +4,13 @@ import { INode } from "./utils/interfaces/INode";
 import { IMainNode } from "./utils/interfaces/IMainNode";
 import { ILink } from "./utils/interfaces/ILink";
 
-const shortener = (hash: string) => `${hash.slice(0, 3)}...${hash.slice(-3)}`;
+const shortener = (hash: string): string =>
+  `${hash.slice(0, 3)}...${hash.slice(-3)}`;
 
-const lovelacesToAda = (lovelaces: number) => `${lovelaces / 1000000} ₳`;
+const lovelacesToAda = (lovelaces: number): string =>
+  `${lovelaces / 1000000} ₳`;
 
-const formatTheLegend = (category: string) => {
+const formatTheLegend = (category: string): string => {
   if (category.length === 67) {
     // for Ingress and Egress Category
     return `${category.slice(0, 3)} ${category.slice(3, 6)}...${category.slice(
@@ -19,11 +21,11 @@ const formatTheLegend = (category: string) => {
   return `${category.slice(0, 3)}...${category.slice(-3)}`;
 };
 
-const displayLinkTooltip = (link: ILink) => {
+const displayLinkTooltip = (link: ILink): string => {
   return `${shortener(link.source)} -> ${shortener(link.target)}`;
 };
 
-const displayMainNode = (mainNode: IMainNode) => {
+const displayMainNode = (mainNode: IMainNode): string => {
   if (mainNode.unspentTx) {
     // display mainNode with unspentTx
     return `Tx Hash: ${shortener(mainNode.name)}<br />Out Sum: ${
@@ -40,7 +42,7 @@ const displayMainNode = (mainNode: IMainNode) => {
   }`;
 };
 
-const displayNodeTooltip = (node: IMainNode | INode) => {
+const displayNodeTooltip = (node: IMainNode | INode): string => {
   const mainNode = node as IMainNode;
   const ingrEgrNode = node as INode;
 
@@ -56,14 +58,14 @@ const displayNodeTooltip = (node: IMainNode | INode) => {
 };
 
 // @ts-ignore
-const Graph = ({ graphData, onClick }) => {
+const Graph = ({ graphData, onClick }): JSX.Element => {
   // TODO: decide on types -> A.B.
   console.log(`graph ---->`, graphData);
   console.log(onClick);
 
   const option = {
     tooltip: {
-      formatter: function (a: { data: IMainNode | INode | ILink }) {
+      formatter: function (a: { data: IMainNode | INode | ILink }): string {
         const link = a.data as ILink;
         const node = a.data as IMainNode | INode;
 
@@ -74,14 +76,14 @@ const Graph = ({ graphData, onClick }) => {
     },
     legend: [
       {
-        data: graphData.categories.map(function (a: { name: string }) {
+        data: graphData.categories.map(function (a: { name: string }): string {
           return a.name;
         }),
         bottom: "15",
         textStyle: {
           color: "#FFFFFF",
         },
-        formatter: function (name: string) {
+        formatter: function (name: string): string {
           return formatTheLegend(name);
         },
       },
@@ -125,7 +127,7 @@ const Graph = ({ graphData, onClick }) => {
 
   console.log(`option`, option);
 
-  const onChartClick = (params: { data: INode | IMainNode }) => {
+  const onChartClick = (params: { data: INode | IMainNode }): void => {
     onClick(params.data);
   };
 

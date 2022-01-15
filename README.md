@@ -20,6 +20,9 @@ You will also see any lint errors in the console.
 ### TODO:
 
 - on node click get ingress tx;
+- resolve legend issue;
+- on input search issue;
+- on click ease the animation of the creation of the graph;
 - finish update to TS;
 - tooltip on the right;
 - i18n on buttons and text (Mandarin)

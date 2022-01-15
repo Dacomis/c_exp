@@ -4,12 +4,12 @@ export default function App() {
   return (
     <div className="relative bg-gradient-to-br from-indigo-800 via-purple-800 to-purple-700 h-screen overflow-hidden">
       <div className="text-center pt-10 text-gray-100 text-4xl">
-        Mimir - Cardano Explorer
+        Mimir - The Visual Cardano Explorer
       </div>
       <div className="flex justify-center text-center pt-6 text-gray-100 text-xl font-extralight">
-        <span className="w-1/4">
-          The first visual Transaction and Address Explorer in the Cardano
-          ecosystem
+        <span className="w-2/4">
+          Search by <strong>Transaction Hash</strong> or{" "}
+          <strong>Address</strong>
         </span>
       </div>
 
