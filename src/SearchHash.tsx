@@ -1,19 +1,14 @@
 import { useState } from "react";
 import Graph from "./Graph";
 import getSocketRes from "./services/WebSocketService";
-import { ICategory } from "./utils/interfaces/ICategory";
-import { IEgressIngressTx } from "./utils/interfaces/IEgressIngressTx";
-import { IGraph } from "./utils/interfaces/IGraph";
-import { ILink } from "./utils/interfaces/ILink";
-import { IMainNode } from "./utils/interfaces/IMainNode";
-import { INode } from "./utils/interfaces/INode";
-import { ITx } from "./utils/interfaces/ITx";
-
-const lovelacesToAda = (lovelaces: number): string =>
-  `${lovelaces / 1000000} ₳`;
-
-const addUnspentTx = (currentTx: ITx): number | undefined =>
-  currentTx.egressT.find((el: IEgressIngressTx) => !el.txHashMay)?.value;
+import { ICategory } from "./interfaces/ICategory";
+import { IEgressIngressTx } from "./interfaces/IEgressIngressTx";
+import { IGraph } from "./interfaces/IGraph";
+import { ILink } from "./interfaces/ILink";
+import { IMainNode } from "./interfaces/IMainNode";
+import { INode } from "./interfaces/INode";
+import { ITx } from "./interfaces/ITx";
+import { addUnspentTx } from "./utils/utils";
 
 const getMainNode = (currentTx: ITx): IMainNode => {
   let mainNode: IMainNode = {
@@ -21,7 +16,7 @@ const getMainNode = (currentTx: ITx): IMainNode => {
     value: currentTx.tx.hash,
     hash: currentTx.tx.hash,
     category: `${currentTx.tx.hash}`,
-    outSum: lovelacesToAda(Number(currentTx.tx.outSum)),
+    outSum: currentTx.tx.outSum,
     txValue: Number(currentTx.tx.outSum),
     size: currentTx.tx.size,
     fee: currentTx.tx.fee,
@@ -149,39 +144,43 @@ const SearchHash = (): JSX.Element => {
 
     if (node.category !== node.value) {
       // check that a main node has not been clicked
-      await getSocketRes(node.value).then((res: ITx) => {
-        const ingressNodes = getIngressNodes(res);
-        const mainNode = getMainNode(res);
+      let res: ITx;
+      try {
+        res = await getSocketRes(node.value);
+      } catch (err) {
+        // TODO: change this with literally anything else
+        alert("This Tx hash does not exist");
+        return;
+      }
 
-        const ingressLinks = getIngressLinks(res);
+      const ingressNodes = getIngressNodes(res);
+      const mainNode = getMainNode(res);
 
-        const ingressCategory = getIngressCategory(res);
-        const mainCategory = getMainCategory(res);
+      const ingressLinks = getIngressLinks(res);
 
-        // all the nodes in the current graph without the last node that has been searched for
-        const currentGraphWithoutNode: INode[] = currentGraph.nodes.filter(
-          (el: INode) => el.name !== res.tx.hash
-        );
+      const ingressCategory = getIngressCategory(res);
+      const mainCategory = getMainCategory(res);
 
-        currentGraph.nodes = [
-          ...currentGraphWithoutNode,
-          mainNode,
-          ...ingressNodes,
-        ] as INode[] | IMainNode[];
+      // all the nodes in the current graph without the last node that has been searched for
+      const currentGraphWithoutNode: INode[] = currentGraph.nodes.filter(
+        (el: INode) => el.name !== res.tx.hash
+      );
 
-        currentGraph.categories = [
-          ...currentGraph.categories,
-          ingressCategory,
-          mainCategory,
-        ] as ICategory[];
+      currentGraph.nodes = [
+        ...currentGraphWithoutNode,
+        mainNode,
+        ...ingressNodes,
+      ] as INode[] | IMainNode[];
 
-        currentGraph.links = [
-          ...currentGraph.links,
-          ...ingressLinks,
-        ] as ILink[];
+      currentGraph.categories = [
+        ...currentGraph.categories,
+        ingressCategory,
+        mainCategory,
+      ] as ICategory[];
 
-        setGraphData(currentGraph);
-      });
+      currentGraph.links = [...currentGraph.links, ...ingressLinks] as ILink[];
+
+      setGraphData(currentGraph);
     }
   };
 
@@ -191,10 +190,17 @@ const SearchHash = (): JSX.Element => {
     const target = e.target as typeof e.target & [{ value: string }];
     setTxHash(target[0].value);
 
-    await getSocketRes(txHash).then((res: ITx) => {
-      const tempGraph = createGraphData(res);
-      setGraphData(tempGraph);
-    });
+    let res: ITx;
+
+    try {
+      res = await getSocketRes(txHash);
+    } catch (err: any) {
+      alert(err.message);
+      return;
+    }
+
+    const tempGraph = createGraphData(res);
+    setGraphData(tempGraph);
   };
 
   return (

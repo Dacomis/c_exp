@@ -45,6 +45,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
+    "@types/react": "^17.0.38",
     "autoprefixer": "^9.8.8",
     "parcel": "^2.0.1",
     "prettier": "^2.4.1",

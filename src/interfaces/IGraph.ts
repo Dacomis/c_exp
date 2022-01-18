@@ -4,8 +4,8 @@ import { IMainNode } from "./IMainNode";
 import { INode } from "./INode";
 
 export interface IGraph {
-    categories: ICategory[],
-    links: ILink[],
-    nodes: INode[] | IMainNode[] // TODO: make sure this is correct -> A.B.
-    type?: string
+  categories: ICategory[];
+  links: ILink[];
+  nodes: (IMainNode | INode)[];
+  type?: string;
 }

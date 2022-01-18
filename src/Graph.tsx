@@ -1,25 +1,9 @@
-import React from "react";
 import ReactECharts from "echarts-for-react";
-import { INode } from "./utils/interfaces/INode";
-import { IMainNode } from "./utils/interfaces/IMainNode";
-import { ILink } from "./utils/interfaces/ILink";
-
-const shortener = (hash: string): string =>
-  `${hash.slice(0, 3)}...${hash.slice(-3)}`;
-
-const lovelacesToAda = (lovelaces: number): string =>
-  `${lovelaces / 1000000} ₳`;
-
-const formatTheLegend = (category: string): string => {
-  if (category.length === 67) {
-    // for Ingress and Egress Category
-    return `${category.slice(0, 3)} ${category.slice(3, 6)}...${category.slice(
-      -3
-    )}`;
-  }
-  // for Main Category
-  return `${category.slice(0, 3)}...${category.slice(-3)}`;
-};
+import { INode } from "./interfaces/INode";
+import { IMainNode } from "./interfaces/IMainNode";
+import { ILink } from "./interfaces/ILink";
+import { IGraph } from "./interfaces/IGraph";
+import { formatTheLegend, lovelacesToAda, shortener } from "./utils/utils";
 
 const displayLinkTooltip = (link: ILink): string => {
   return `${shortener(link.source)} -> ${shortener(link.target)}`;
@@ -28,18 +12,20 @@ const displayLinkTooltip = (link: ILink): string => {
 const displayMainNode = (mainNode: IMainNode): string => {
   if (mainNode.unspentTx) {
     // display mainNode with unspentTx
-    return `Tx Hash: ${shortener(mainNode.name)}<br />Out Sum: ${
-      mainNode.outSum
-    }<br />Size: ${mainNode.size}<br />Fee: ${mainNode.fee} L<br />BlockId: ${
+    return `Tx Hash: ${shortener(mainNode.name)}<br />Out Sum: ${lovelacesToAda(
+      mainNode.txValue
+    )}<br />Fee: ${lovelacesToAda(mainNode.fee)}<br />BlockId: ${
       mainNode.blockId
-    }<br />Unspent Tx: ${mainNode.unspentTx}`; // TODO: change currency
+    }<br />Size: ${mainNode.size}<br />Unspent Tx: ${lovelacesToAda(
+      mainNode.unspentTx
+    )}`;
   }
   // display mainNode without unspentTx
-  return `Tx Hash: ${shortener(mainNode.name)}<br />Out Sum: ${
-    mainNode.outSum
-  }<br />Size: ${mainNode.size}<br />Fee: ${mainNode.fee} L<br />BlockId: ${
+  return `Tx Hash: ${shortener(mainNode.name)}<br />Out Sum: ${lovelacesToAda(
+    mainNode.txValue
+  )}<br />Fee: ${lovelacesToAda(mainNode.fee)}<br />BlockId: ${
     mainNode.blockId
-  }`;
+  }<br />Size: ${mainNode.size}`;
 };
 
 const displayNodeTooltip = (node: IMainNode | INode): string => {
@@ -49,20 +35,19 @@ const displayNodeTooltip = (node: IMainNode | INode): string => {
   if (node.category.length === 67) {
     return `Tx Hash: ${shortener(
       ingrEgrNode.name
-    )}<br />TxValue: ${lovelacesToAda(ingrEgrNode.txValue)}<br />TxValue: ${
-      ingrEgrNode.txValue
-    } L`;
+    )}<br />TxValue: ${lovelacesToAda(ingrEgrNode.txValue)}`;
   } else {
     return displayMainNode(mainNode);
   }
 };
 
-// @ts-ignore
-const Graph = ({ graphData, onClick }): JSX.Element => {
-  // TODO: decide on types -> A.B.
-  console.log(`graph ---->`, graphData);
-  console.log(onClick);
-
+const Graph = ({
+  graphData,
+  onClick,
+}: {
+  graphData: IGraph;
+  onClick: (node: IMainNode | INode) => Promise<void>;
+}): JSX.Element => {
   const option = {
     tooltip: {
       formatter: function (a: { data: IMainNode | INode | ILink }): string {
@@ -88,8 +73,8 @@ const Graph = ({ graphData, onClick }): JSX.Element => {
         },
       },
     ],
-    animationDuration: 1500,
-    animationEasingUpdate: "quinticInOut",
+    animationDuration: 9000, // TODO: resolve "choppines" of animation
+    animationEasingUpdate: "quadraticIn",
     series: [
       {
         name: "Tx Graph",
@@ -124,8 +109,6 @@ const Graph = ({ graphData, onClick }): JSX.Element => {
       },
     ],
   };
-
-  console.log(`option`, option);
 
   const onChartClick = (params: { data: INode | IMainNode }): void => {
     onClick(params.data);

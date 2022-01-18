@@ -1,5 +1,7 @@
+import { ITx } from "../interfaces/ITx";
+
 const SOCKET_URL = "ws://localhost:9000/";
-let socketPromise: any;
+let socketPromise: Promise<WebSocket>;
 
 const hexToBytes = (hex: string): number[] => {
   let bytes = [];
@@ -9,7 +11,7 @@ const hexToBytes = (hex: string): number[] => {
   return bytes;
 };
 
-const getSocket = () => {
+const getSocket = (): Promise<WebSocket> => {
   if (socketPromise) {
     return socketPromise;
   }
@@ -17,42 +19,60 @@ const getSocket = () => {
   socketPromise = new Promise(function (resolve, reject) {
     let socket = new WebSocket(SOCKET_URL);
 
-    socket.onopen = function () {
+    socket.onopen = function (): void {
       resolve(socket);
     };
-    socket.onerror = function (err) {
+    socket.onerror = function (err): void {
       reject(err);
     };
   });
-  
+
   return socketPromise;
 };
 
-let getSocketRes = (txHash: string) => {
+let getSocketRes = async (txHash: string): Promise<ITx> => {
   let msg = new Uint8Array(hexToBytes(txHash)).buffer;
+  let server: WebSocket;
 
-  return getSocket()
-    .then((server: any) => {
-      server.send(msg);
+  try {
+    server = await getSocket();
+    server.send(msg);
+  } catch (err) {
+    throw err;
+  }
 
-      return new Promise(function (resolve, reject) {
-        server.addEventListener("message", function (event: any) {
-          let textData = event.data.text();
+  return new Promise(function (resolve, reject) {
+    const timeoutRemoveEL = setTimeout(() => {
+      server.removeEventListener("message", checkData);
+      reject(new Error("err"));
+    }, 5000);
 
-          textData.then((res: any) => {
-            let resultJSON = JSON.parse(res);
+    function checkData(event: any): void {
+      let textData = event.data.text();
 
-            // TODO: to also add address
-            if (resultJSON.tx.hash === txHash) {
-              resolve(resultJSON);
-            }
-          });
-        });
+      textData.then((res: any) => {
+        if (res === "null") {
+          server.removeEventListener("message", checkData);
+          clearTimeout(timeoutRemoveEL);
+          return reject(new Error("Inexistent tx hash"));
+        }
+
+        let resultJSON: any = JSON.parse(res);
+        let txResult: ITx = resultJSON as ITx;
+
+        // TODO: req send unique number/ string
+        // TODO: to also add address
+        if (resultJSON.tx.hash === txHash) {
+          server.removeEventListener("message", checkData);
+
+          clearTimeout(timeoutRemoveEL);
+          resolve(txResult);
+        }
       });
-    })
-    .catch((err: any) => console.error(err));
-};
-console.log(socketPromise);
+    }
 
+    server.addEventListener("message", checkData);
+  });
+};
 
 export default getSocketRes;
