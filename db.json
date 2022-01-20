@@ -1,466 +1,163 @@
 {
-  "transactions": [
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "6e17987f6507597b2032d6645787d7c9bbd1b86144335adc0cf7a78c5c221682",
-        "size": 466,
-        "fee": 218708,
-        "blockId": 157057,
-        "invalidHereafter": null,
-        "id": 44098,
-        "outSum": 22619875610222,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
+    "transactions": [
         {
-          "value": 385505000000,
-          "addr": "DdzFFzCqrht4uUjnzfbJDzicc4x1kQ2mEsTT3poUSDDtdKGFrKsMBHd8iidrjQHhhEcjeKY5VGnErujCCfjEqXWp8e2aeY9mTQVxGssL",
-          "txHash": "463b51f4d9b19740da5ccb54025da3e4a406a51c04bb5b3a9065f34f34af69a2",
-          "txIdx": 0
+            "id": 1,
+            "hash": "927edb96f3386ab91b5f5d85d84cb4253c65b1c2f65fa7df25f81fab1d62987a",
+            "blockId": 1,
+            "blockIdx": 0,
+            "outSum": 538861000000,
+            "fee": 0,
+            "size": 0,
+            "indeg": 0,
+            "outdeg": 1,
+            "egress": {
+                "0": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752"
+            },
+            "ingress": ""
         },
         {
-          "value": 379414000000,
-          "addr": "DdzFFzCqrhsyk2yZ7TXysezs3Fbkda6TRMPYt1dWgzuYHMv8JHV4fwQr9kqcrBcgZc8ke4CYt1h5Z4JGZcCqnEofsP3UjpGLwEKCA7RB",
-          "txHash": "935a7892aa2dd481abcdb5fe41ea7b6d95047423b876eddf8058358293cf141c",
-          "txIdx": 0
+            "id": 26410,
+            "hash": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752",
+            "blockId": 40918,
+            "blockIdx": 1,
+            "outSum": 538861000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {
+                "0": "6e17987f6507597b2032d6645787d7c9bbd1b86144335adc0cf7a78c5c221682"
+            },
+            "ingress": {
+                "0": "927edb96f3386ab91b5f5d85d84cb4253c65b1c2f65fa7df25f81fab1d62987a"
+            }
         },
         {
-          "value": 926997000000,
-          "addr": "DdzFFzCqrhshbhtJ5kzp4Mc67xMpF6TQGMhUMrLE5RVFaFRZKWJKwmU3W4uHxBdLJpJ5aUSpMMwK3b4sfb4qGQGzJReSZ8RWMLScr9aF",
-          "txHash": "232a69ea8b0439d893cc2d296026aacac329ae8963abe949d997333e04e9f7e6",
-          "txIdx": 0
+            "id": 44098,
+            "hash": "6e17987f6507597b2032d6645787d7c9bbd1b86144335adc0cf7a78c5c221682",
+            "blockId": 157057,
+            "blockIdx": 1,
+            "outSum": 22619875610222,
+            "fee": 218708,
+            "size": 466,
+            "indeg": 7,
+            "outdeg": 2,
+            "egress": {
+                "0": "fba2a4ee2019b8e773324f677cbf7a8d9e15a200e51bf4d56f51736f75c3442b"
+            },
+            "ingress": {
+                "0": "463b51f4d9b19740da5ccb54025da3e4a406a51c04bb5b3a9065f34f34af69a2",
+                "1": "935a7892aa2dd481abcdb5fe41ea7b6d95047423b876eddf8058358293cf141c",
+                "2": "232a69ea8b0439d893cc2d296026aacac329ae8963abe949d997333e04e9f7e6",
+                "3": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752",
+                "4": "0b5cba9352a7d9c2a8341916b34b481db99e9a882bcd68ca46fc5aede40a54d1",
+                "5": "dcec257e21b4d78a66c1deb0461520ae6b541ff9effdb1095cd03a4c6d3afd7b",
+                "6": "e34f4785655d758049939f226bf858a45d32c9dae2dd956356095d9cf32c5678"
+            }
         },
         {
-          "value": 538861000000,
-          "addr": "DdzFFzCqrhsehuAU97soZ4uNKw6MoqRYd265qB22bu6ty7GnRLtGRsWwUth1kpS5AEfhSY9dhHSCb4WZQREtAqcWxg3PQFXsKW15TkeH",
-          "txHash": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752",
-          "txIdx": 0
+            "id": 44111,
+            "hash": "fba2a4ee2019b8e773324f677cbf7a8d9e15a200e51bf4d56f51736f75c3442b",
+            "blockId": 157078,
+            "blockIdx": 0,
+            "outSum": 68802987509441,
+            "fee": 290559,
+            "size": 850,
+            "indeg": 16,
+            "outdeg": 2,
+            "egress": {},
+            "ingress": {}
         },
         {
-          "value": 1415034000000,
-          "addr": "DdzFFzCqrht5U1M8nJHVeNAMzc7ChnEoToFwEEFtyJJJikwKx3AfEFthC9f3Wc1ghJN4aiseVs9U76Shc7AktANMm5HRPYvu3Wp5jqWQ",
-          "txHash": "0b5cba9352a7d9c2a8341916b34b481db99e9a882bcd68ca46fc5aede40a54d1",
-          "txIdx": 0
+            "id": 26111,
+            "hash": "463b51f4d9b19740da5ccb54025da3e4a406a51c04bb5b3a9065f34f34af69a2",
+            "blockId": 40464,
+            "blockIdx": 0,
+            "outSum": 385505000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {},
+            "ingress": {}
         },
         {
-          "value": 461144000000,
-          "addr": "DdzFFzCqrhszg6dedodcwyMr8TFS7wCuN8kPjEv6wmXZmZ1bLYqFGHD24nQimEiRCkfCGmLwwnwetPBh9m8LCiC2AzzQNnRSchJT3ZEo",
-          "txHash": "dcec257e21b4d78a66c1deb0461520ae6b541ff9effdb1095cd03a4c6d3afd7b",
-          "txIdx": 0
+            "id": 26396,
+            "hash": "935a7892aa2dd481abcdb5fe41ea7b6d95047423b876eddf8058358293cf141c",
+            "blockId": 40897,
+            "blockIdx": 0,
+            "outSum": 379414000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {},
+            "ingress": {}
         },
         {
-          "value": 18512920828930,
-          "addr": "DdzFFzCqrht52Jixi7XTEaDKZiNM9J1H7sgbrpsGeY4Kkmx4Q8gMJDWgA2AdygEeufV3ctVyQjWN3mKh7F2apbQDMpERThAUkGoWQA2w",
-          "txHash": "e34f4785655d758049939f226bf858a45d32c9dae2dd956356095d9cf32c5678",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 10222,
-          "addr": "DdzFFzCqrhsxGudjSJbVwbR7hfBKJFmAtw64JmwQCqQK3yDVKyNV9z2iHdazMmJTCysjeBu1fmkFWiwE2YCKkyBhej2ktn6WgeyW6qyo",
-          "txHashMay": null
+            "id": 26404,
+            "hash": "232a69ea8b0439d893cc2d296026aacac329ae8963abe949d997333e04e9f7e6",
+            "blockId": 40914,
+            "blockIdx": 0,
+            "outSum": 926997000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {},
+            "ingress": {}
         },
         {
-          "value": 22619875600000,
-          "addr": "DdzFFzCqrhsnAnYhWdf2WTnZBH29inaqMSVisoaUKuXYHNeysYtRMzwdcWpKCr9M9c7QAMFxGKbbk2tkwrqtYGGq3bcWEYbAErkjNGKo",
-          "txHashMay": "6e17987f6507597b2032d6645787d7c9bbd1b86144335adc0cf7a78c5c221682"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "e34f4785655d758049939f226bf858a45d32c9dae2dd956356095d9cf32c5678",
-        "size": 216,
-        "fee": 171070,
-        "blockId": 157055,
-        "invalidHereafter": null,
-        "id": 44097,
-        "outSum": 18512970828930,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 18512971000000,
-          "addr": "DdzFFzCqrhshgCCB6yhBf3Dtpbvqa9TWRPb9rXPCL7VSSnSDRXdQZviGeaCayp6MHE73TN2c9jD94nZdXR9VMUMEN2KtFskZt4DVRMnF",
-          "txHash": "d569b041393ba3eacea13948a0f9cd7a5dae3bdbcac3848b448a62bb769f4a50",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 18512920828930,
-          "addr": "DdzFFzCqrht52Jixi7XTEaDKZiNM9J1H7sgbrpsGeY4Kkmx4Q8gMJDWgA2AdygEeufV3ctVyQjWN3mKh7F2apbQDMpERThAUkGoWQA2w",
-          "txHashMay": "e34f4785655d758049939f226bf858a45d32c9dae2dd956356095d9cf32c5678"
+            "id": 26410,
+            "hash": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752",
+            "blockId": 40918,
+            "blockIdx": 1,
+            "outSum": 538861000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {},
+            "ingress": {}
         },
         {
-          "value": 50000000,
-          "addr": "DdzFFzCqrhsnAnYhWdf2WTnZBH29inaqMSVisoaUKuXYHNeysYtRMzwdcWpKCr9M9c7QAMFxGKbbk2tkwrqtYGGq3bcWEYbAErkjNGKo",
-          "txHashMay": "e34f4785655d758049939f226bf858a45d32c9dae2dd956356095d9cf32c5678"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "0b5cba9352a7d9c2a8341916b34b481db99e9a882bcd68ca46fc5aede40a54d1",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40921,
-        "invalidHereafter": null,
-        "id": 26411,
-        "outSum": 1415034000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
+            "id": 26411,
+            "hash": "0b5cba9352a7d9c2a8341916b34b481db99e9a882bcd68ca46fc5aede40a54d1",
+            "blockId": 40921,
+            "blockIdx": 0,
+            "outSum": 1415034000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {},
+            "ingress": {}
+        },
         {
-          "value": 1415034000000,
-          "addr": "Ae2tdPwUPEZMfnPzt8eXpqsZ5dtEG2sKcLXnW8y77QpFNFHfLX2YeVoNti2",
-          "txHash": "bf7daf5cd1c0125a86cc171e43e2246d32eb0605e11bcdbc0f84367439bc32f1",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
+            "id": 26413,
+            "hash": "dcec257e21b4d78a66c1deb0461520ae6b541ff9effdb1095cd03a4c6d3afd7b",
+            "blockId": 40924,
+            "blockIdx": 0,
+            "outSum": 461144000000,
+            "fee": 0,
+            "size": 134,
+            "indeg": 1,
+            "outdeg": 1,
+            "egress": {},
+            "ingress": {}
+        },
         {
-          "value": 1415034000000,
-          "addr": "DdzFFzCqrht5U1M8nJHVeNAMzc7ChnEoToFwEEFtyJJJikwKx3AfEFthC9f3Wc1ghJN4aiseVs9U76Shc7AktANMm5HRPYvu3Wp5jqWQ",
-          "txHashMay": "0b5cba9352a7d9c2a8341916b34b481db99e9a882bcd68ca46fc5aede40a54d1"
+            "id": 44097,
+            "hash": "e34f4785655d758049939f226bf858a45d32c9dae2dd956356095d9cf32c5678",
+            "blockId": 157055,
+            "blockIdx": 0,
+            "outSum": 18512970828930,
+            "fee": 171070,
+            "size": 216,
+            "indeg": 1,
+            "outdeg": 2,
+            "egress": {},
+            "ingress": {}
         }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "463b51f4d9b19740da5ccb54025da3e4a406a51c04bb5b3a9065f34f34af69a2",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40464,
-        "invalidHereafter": null,
-        "id": 26111,
-        "outSum": 385505000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 385505000000,
-          "addr": "Ae2tdPwUPEZLshKfYUwZjGxPFvkaLQuXu6XcyGL1n2m2JKLvhECZsPss1EZ",
-          "txHash": "940fa514d01ddcc60d2413aa4038b8a5071f4dfb1eb3a0f30460019616923db6",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 385505000000,
-          "addr": "DdzFFzCqrht4uUjnzfbJDzicc4x1kQ2mEsTT3poUSDDtdKGFrKsMBHd8iidrjQHhhEcjeKY5VGnErujCCfjEqXWp8e2aeY9mTQVxGssL",
-          "txHashMay": "463b51f4d9b19740da5ccb54025da3e4a406a51c04bb5b3a9065f34f34af69a2"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 1,
-        "hash": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40918,
-        "invalidHereafter": null,
-        "id": 26410,
-        "outSum": 538861000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 538861000000,
-          "addr": "Ae2tdPwUPEZ9vtyppa1FdJzvqJZkEcXgdHxVYAzTWcPaoNycVq5rc36LC1S",
-          "txHash": "927edb96f3386ab91b5f5d85d84cb4253c65b1c2f65fa7df25f81fab1d62987a",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 538861000000,
-          "addr": "DdzFFzCqrhsehuAU97soZ4uNKw6MoqRYd265qB22bu6ty7GnRLtGRsWwUth1kpS5AEfhSY9dhHSCb4WZQREtAqcWxg3PQFXsKW15TkeH",
-          "txHashMay": "353fc63cf007cde1a5ffb98eb3f88db40d82e77df056de818fb962826101d752"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "232a69ea8b0439d893cc2d296026aacac329ae8963abe949d997333e04e9f7e6",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40914,
-        "invalidHereafter": null,
-        "id": 26404,
-        "outSum": 926997000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 926997000000,
-          "addr": "Ae2tdPwUPEZENvrUAWyPBmbiSJKHdr5fjvP9CJiHenYK3GGVUDyx4C2i9Fb",
-          "txHash": "e729f7cb04d4839474ca06dcf82f35f93930fceec525355ee5d453c47217bba8",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 926997000000,
-          "addr": "DdzFFzCqrhshbhtJ5kzp4Mc67xMpF6TQGMhUMrLE5RVFaFRZKWJKwmU3W4uHxBdLJpJ5aUSpMMwK3b4sfb4qGQGzJReSZ8RWMLScr9aF",
-          "txHashMay": "232a69ea8b0439d893cc2d296026aacac329ae8963abe949d997333e04e9f7e6"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "935a7892aa2dd481abcdb5fe41ea7b6d95047423b876eddf8058358293cf141c",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40897,
-        "invalidHereafter": null,
-        "id": 26396,
-        "outSum": 379414000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 379414000000,
-          "addr": "Ae2tdPwUPEZFYfjWzKTkLnzzriSXKYL5Q8oh9tUQgVCkUbSc6toPDq2vhsD",
-          "txHash": "bf9050e7f5c31fc686475699e39859620a967fedf7f4c2306a712224ef5927cc",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 379414000000,
-          "addr": "DdzFFzCqrhsyk2yZ7TXysezs3Fbkda6TRMPYt1dWgzuYHMv8JHV4fwQr9kqcrBcgZc8ke4CYt1h5Z4JGZcCqnEofsP3UjpGLwEKCA7RB",
-          "txHashMay": "935a7892aa2dd481abcdb5fe41ea7b6d95047423b876eddf8058358293cf141c"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "dcec257e21b4d78a66c1deb0461520ae6b541ff9effdb1095cd03a4c6d3afd7b",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40924,
-        "invalidHereafter": null,
-        "id": 26413,
-        "outSum": 461144000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 461144000000,
-          "addr": "Ae2tdPwUPEZ3Sr3yMQvukcsbhT1wRP8TuhFmFkqTgPFTnND93U4gd4MQeHx",
-          "txHash": "b0ab2d93cf5f108cdf46bbabcc82f6e49f7ecdc8a250e7c6210223cf5066bb60",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 461144000000,
-          "addr": "DdzFFzCqrhszg6dedodcwyMr8TFS7wCuN8kPjEv6wmXZmZ1bLYqFGHD24nQimEiRCkfCGmLwwnwetPBh9m8LCiC2AzzQNnRSchJT3ZEo",
-          "txHashMay": "dcec257e21b4d78a66c1deb0461520ae6b541ff9effdb1095cd03a4c6d3afd7b"
-        }
-      ]
-    },
-
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "927edb96f3386ab91b5f5d85d84cb4253c65b1c2f65fa7df25f81fab1d62987a",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 1,
-        "outSum": 538861000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 538861000000,
-          "addr": "Ae2tdPwUPEZ9vtyppa1FdJzvqJZkEcXgdHxVYAzTWcPaoNycVq5rc36LC1S",
-          "txHashMay": "927edb96f3386ab91b5f5d85d84cb4253c65b1c2f65fa7df25f81fab1d62987a"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "940fa514d01ddcc60d2413aa4038b8a5071f4dfb1eb3a0f30460019616923db6",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 8582,
-        "outSum": 385505000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 385505000000,
-          "addr": "Ae2tdPwUPEZLshKfYUwZjGxPFvkaLQuXu6XcyGL1n2m2JKLvhECZsPss1EZ",
-          "txHashMay": "940fa514d01ddcc60d2413aa4038b8a5071f4dfb1eb3a0f30460019616923db6"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "bf9050e7f5c31fc686475699e39859620a967fedf7f4c2306a712224ef5927cc",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 10490,
-        "outSum": 379414000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 379414000000,
-          "addr": "Ae2tdPwUPEZFYfjWzKTkLnzzriSXKYL5Q8oh9tUQgVCkUbSc6toPDq2vhsD",
-          "txHashMay": "bf9050e7f5c31fc686475699e39859620a967fedf7f4c2306a712224ef5927cc"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "bf7daf5cd1c0125a86cc171e43e2246d32eb0605e11bcdbc0f84367439bc32f1",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 5850,
-        "outSum": 1415034000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 1415034000000,
-          "addr": "Ae2tdPwUPEZMfnPzt8eXpqsZ5dtEG2sKcLXnW8y77QpFNFHfLX2YeVoNti2",
-          "txHashMay": "bf7daf5cd1c0125a86cc171e43e2246d32eb0605e11bcdbc0f84367439bc32f1"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "d569b041393ba3eacea13948a0f9cd7a5dae3bdbcac3848b448a62bb769f4a50",
-        "size": 134,
-        "fee": 0,
-        "blockId": 40894,
-        "invalidHereafter": null,
-        "id": 26394,
-        "outSum": 18512971000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [
-        {
-          "value": 18512971000000,
-          "addr": "Ae2tdPwUPEYyvGi4dJLkqi2ndxin9ebP2f8HgfVebhcc1CAVHEQKJzKSc66",
-          "txHash": "a82d487198acd9724ae6b7d80c57113040f813341312c23673dcbbe038245c1d",
-          "txIdx": 0
-        }
-      ],
-      "egressT": [
-        {
-          "value": 18512971000000,
-          "addr": "DdzFFzCqrhshgCCB6yhBf3Dtpbvqa9TWRPb9rXPCL7VSSnSDRXdQZviGeaCayp6MHE73TN2c9jD94nZdXR9VMUMEN2KtFskZt4DVRMnF",
-          "txHashMay": "d569b041393ba3eacea13948a0f9cd7a5dae3bdbcac3848b448a62bb769f4a50"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "a82d487198acd9724ae6b7d80c57113040f813341312c23673dcbbe038245c1d",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 4544,
-        "outSum": 18512971000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 18512971000000,
-          "addr": "Ae2tdPwUPEYyvGi4dJLkqi2ndxin9ebP2f8HgfVebhcc1CAVHEQKJzKSc66",
-          "txHashMay": "a82d487198acd9724ae6b7d80c57113040f813341312c23673dcbbe038245c1d"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "e729f7cb04d4839474ca06dcf82f35f93930fceec525355ee5d453c47217bba8",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 6625,
-        "outSum": 926997000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 926997000000,
-          "addr": "Ae2tdPwUPEZENvrUAWyPBmbiSJKHdr5fjvP9CJiHenYK3GGVUDyx4C2i9Fb",
-          "txHashMay": "e729f7cb04d4839474ca06dcf82f35f93930fceec525355ee5d453c47217bba8"
-        }
-      ]
-    },
-    {
-      "tx": {
-        "blockIdx": 0,
-        "hash": "b0ab2d93cf5f108cdf46bbabcc82f6e49f7ecdc8a250e7c6210223cf5066bb60",
-        "size": 0,
-        "fee": 0,
-        "blockId": 1,
-        "invalidHereafter": null,
-        "id": 8610,
-        "outSum": 461144000000,
-        "deposit": 0,
-        "invalidBefore": null
-      },
-      "ingressT": [],
-      "egressT": [
-        {
-          "value": 461144000000,
-          "addr": "Ae2tdPwUPEZ3Sr3yMQvukcsbhT1wRP8TuhFmFkqTgPFTnND93U4gd4MQeHx",
-          "txHashMay": "b0ab2d93cf5f108cdf46bbabcc82f6e49f7ecdc8a250e7c6210223cf5066bb60"
-        }
-      ]
-    }
-  ]
+    ]
 }
