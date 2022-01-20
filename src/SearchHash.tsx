@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Graph from "./Graph";
-import getSocketRes from "./services/WebSocketService";
 import { ICategory } from "./interfaces/ICategory";
 import { IEgressIngressTx } from "./interfaces/IEgressIngressTx";
 import { IGraph } from "./interfaces/IGraph";
@@ -139,48 +138,63 @@ const SearchHash = (): JSX.Element => {
     links: [],
   } as IGraph);
 
-  const displayNewTx = async (node: INode): Promise<void> => {
-    let currentGraph = { ...graphData };
+  const fetchTxWithEgressAndIngress = (hash: string) => {
+    fetch(`http://localhost:8000/transactions?hash=${hash}`)
+      .then((res) => res.json())
+      .then((data) => {
+        let tx = data.filter((el: any) => el.tx.hash === hash)[0];
 
+        const tempGraph = createGraphData(tx);
+        setGraphData(tempGraph);
+      });
+  };
+
+  const constructNewGraph = (hash: string) => {
+    fetch(`http://localhost:8000/transactions?hash=${hash}`)
+      .then((res) => res.json())
+      .then((data) => {
+        let currentGraph = { ...graphData };
+
+        let tx = data.filter((el: any) => el.tx.hash === hash)[0];
+
+        const ingressNodes = getIngressNodes(tx);
+        const mainNode = getMainNode(tx);
+
+        const ingressLinks = getIngressLinks(tx);
+
+        const ingressCategory = getIngressCategory(tx);
+        const mainCategory = getMainCategory(tx);
+
+        // all the nodes in the current graph without the last node that has been searched for
+        const currentGraphWithoutNode: INode[] = currentGraph.nodes.filter(
+          (el: INode) => el.name !== tx.tx.hash
+        );
+
+        currentGraph.nodes = [
+          ...currentGraphWithoutNode,
+          mainNode,
+          ...ingressNodes,
+        ] as INode[] | IMainNode[];
+
+        currentGraph.categories = [
+          ...currentGraph.categories,
+          ingressCategory,
+          mainCategory,
+        ] as ICategory[];
+
+        currentGraph.links = [
+          ...currentGraph.links,
+          ...ingressLinks,
+        ] as ILink[];
+
+        setGraphData(currentGraph);
+      });
+  };
+
+  const displayNewTx = async (node: INode): Promise<void> => {
     if (node.category !== node.value) {
       // check that a main node has not been clicked
-      let res: ITx;
-      try {
-        res = await getSocketRes(node.value);
-      } catch (err) {
-        // TODO: change this with literally anything else
-        alert("This Tx hash does not exist");
-        return;
-      }
-
-      const ingressNodes = getIngressNodes(res);
-      const mainNode = getMainNode(res);
-
-      const ingressLinks = getIngressLinks(res);
-
-      const ingressCategory = getIngressCategory(res);
-      const mainCategory = getMainCategory(res);
-
-      // all the nodes in the current graph without the last node that has been searched for
-      const currentGraphWithoutNode: INode[] = currentGraph.nodes.filter(
-        (el: INode) => el.name !== res.tx.hash
-      );
-
-      currentGraph.nodes = [
-        ...currentGraphWithoutNode,
-        mainNode,
-        ...ingressNodes,
-      ] as INode[] | IMainNode[];
-
-      currentGraph.categories = [
-        ...currentGraph.categories,
-        ingressCategory,
-        mainCategory,
-      ] as ICategory[];
-
-      currentGraph.links = [...currentGraph.links, ...ingressLinks] as ILink[];
-
-      setGraphData(currentGraph);
+      constructNewGraph(node.value);
     }
   };
 
@@ -190,17 +204,7 @@ const SearchHash = (): JSX.Element => {
     const target = e.target as typeof e.target & [{ value: string }];
     setTxHash(target[0].value);
 
-    let res: ITx;
-
-    try {
-      res = await getSocketRes(txHash);
-    } catch (err: any) {
-      alert(err.message);
-      return;
-    }
-
-    const tempGraph = createGraphData(res);
-    setGraphData(tempGraph);
+    fetchTxWithEgressAndIngress(txHash);
   };
 
   return (
