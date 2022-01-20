@@ -8,8 +8,8 @@ export default function App() {
       </div>
       <div className="flex justify-center text-center pt-6 text-gray-100 text-xl font-extralight">
         <span className="w-2/4">
-          Search by <strong>Transaction Hash</strong> or{" "}
-          <strong>Address</strong>
+          Search by <strong>Transaction Hash</strong>
+          {/* or{" "} <strong>Address</strong> */}
         </span>
       </div>
 
