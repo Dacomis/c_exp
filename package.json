@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "concurrently": "^7.0.0",
     "echarts-for-react": "^3.0.2",
     "graphire": "^0.0.0-beta.11",
     "json-server": "^0.17.0",
@@ -16,7 +17,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "concurrently \"craco start\" \"npx json-server --watch db.json --port 8000\"",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
