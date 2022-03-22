@@ -28,6 +28,13 @@ export default function App() {
       <div className="absolute animate-pulse bg-purple-600 opacity-50 rounded-full w-80 h-80 -bottom-8 -right-36" />
 
       <SearchHash />
+
+      {/* <div class="has-tooltip">
+                <span class="tooltip rounded shadow-lg p-1 bg-gray-100 text-red-500 -mt-8">
+            Some Nice Tooltip Text
+          </span>
+          Custom Position (above)
+        </div> */}
     </div>
   );
 }
