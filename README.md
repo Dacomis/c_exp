@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Mimir - The Visual Cardano Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+With this project you can search Search by Transaction Hash the transactions in the Cardano blockchain and the result will be displayed in a graph.
+
+This project is a `WIP` and communicates with a Cardano node as a backend through WebSockets. To emulate this behavior, change the branch to `json_server` and run `npm start`. This branch uses a json_server. Type in `6e17987f6507597b2032d6645787d7c9bbd1b86144335adc0cf7a78c5c221682` and click on the blue nodes aka Ingress Nodes. The egress functionality is in development.
 
 ## To Start the Project
 
@@ -14,8 +16,11 @@ This project uses TailwindCSS which requires node 12+.
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This project uses TailwindCSS which requires node 12+.
+
+### `npx json-server --watch db.json --port 8000`
+
+Open the mock db [http://localhost:8000/transactions](http://localhost:8000/transactions) to view the available transactions you can search by. Any other transactions hash than the ones in this database and the display of the graph won't work/
 
 ### TODO:
 
